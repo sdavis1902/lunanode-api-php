@@ -18,7 +18,7 @@ $ composer require sdavis1902/lunanode-api-php
 ## Usage
 
 ``` php
-$api = new \sdavis1902\LunanodeApiPhp\Lunanode;
+$api = new \sdavis1902\LunanodeApiPhp\Lunanode($api_id, $api_key);
 $result = $api->request('vm', 'list');
 
 foreach( $result['vms'] as $vm ){
@@ -27,6 +27,44 @@ foreach( $result['vms'] as $vm ){
     ]); 
 }
 ```
+
+Laravel 5
+
+Add Service Provider and Alias
+
+``` php
+'providers' => [
+    ... 
+    sdavis1902\LunanodeApiPhp\Laravel\ServiceProvider::class,
+],
+```
+
+``` php
+'aliases' => [
+    ... 
+    'Lunanode' => sdavis1902\LunanodeApiPhp\Laravel\Lunanode::class,
+],
+```
+
+Add the following to your .env file
+
+``` php
+LND_API_ID=apiid
+LND_API_KEY=apikey
+```
+
+Then call the same methods using the Facade
+
+``` php
+$result = Lunanode::request('vm', 'list');
+
+foreach( $result['vms'] as $vm ){
+    $info = Lunanode::request('vm', 'info', [
+        'vm_id' => $vm['vm_id']
+    ]); 
+}
+```
+
 
 ## Change log
 

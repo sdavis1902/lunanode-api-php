@@ -3,11 +3,11 @@ namespace sdavis1902\LunanodeApiPhp;
 
 class Lunanode {
 
-	protected static $LNDYNAMIC_URL = 'https://dynamic.lunanode.com/api/{CATEGORY}/{ACTION}/';
+	private static $LNDYNAMIC_URL = 'https://dynamic.lunanode.com/api/{CATEGORY}/{ACTION}/';
 
-	public function __construct(){
-		$api_id = env('LND_API_ID');
-		$api_key = env('LND_API_KEY');
+	public function __construct($api_id = '', $api_key = ''){
+		if( !$api_id ) $api_id = env('LND_API_ID');
+		if( !$api_key ) $api_key = env('LND_API_KEY');
 
 		if(strlen($api_id) != 16) {
 			throw new \Exception('supplied api_id incorrect length, must be 16');

@@ -1,6 +1,6 @@
 <?php
 
-namespace sdavis1902\LunanodeApiPhp;
+namespace sdavis1902\LunanodeApiPhp\Laravel;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -23,6 +23,8 @@ class LunanodeServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        \App::bind('lunanode', function(){
+            return new \sdavis1902\LunanodeApiPhp\Lunanode;
+        });
     }
 }
