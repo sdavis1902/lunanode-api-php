@@ -35,7 +35,7 @@ Add Service Provider and Alias
 ``` php
 'providers' => [
     ... 
-    sdavis1902\LunanodeApiPhp\Laravel\ServiceProvider::class,
+    sdavis1902\LunanodeApiPhp\Laravel\LunanodeServiceProvider::class,
 ],
 ```
 
