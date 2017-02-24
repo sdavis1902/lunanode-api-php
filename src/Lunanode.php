@@ -47,6 +47,16 @@ class Lunanode {
 		];
 		$context  = stream_context_create($options);
 		$result = file_get_contents($url, false, $context);
-		return json_decode($result, true);
+		$result = json_decode($result);
+
+		if( !isset( $result->success ) || $result->success !== 'yes' ) return false;
+
+		if( $action == 'list' ){
+			if( isset( $result->{$category.'s'} ) ){
+				$result = $result->{$category.'s'};
+			}
+		}
+
+		return $result;
 	}
 }

@@ -19,11 +19,11 @@ $ composer require sdavis1902/lunanode-api-php
 
 ``` php
 $api = new \sdavis1902\LunanodeApiPhp\Lunanode($api_id, $api_key);
-$result = $api->request('vm', 'list');
+$vms = $api->request('vm', 'list');
 
-foreach( $result['vms'] as $vm ){
+foreach( $vms as $vm ){
     $info = $api->request('vm', 'info', [
-        'vm_id' => $vm['vm_id']
+        'vm_id' => $vm->vm_id
     ]); 
 }
 ```
@@ -56,12 +56,12 @@ LND_API_KEY=apikey
 Then call the same methods using the Facade
 
 ``` php
-$result = Lunanode::request('vm', 'list');
+$vms = Lunanode::request('vm', 'list');
 
-foreach( $result['vms'] as $vm ){
+foreach( $vms as $vm ){
     $info = Lunanode::request('vm', 'info', [
-        'vm_id' => $vm['vm_id']
-    ]); 
+        'vm_id' => $vm->vm_id
+    ]);
 }
 ```
 
