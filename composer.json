@@ -42,6 +42,14 @@
     "extra": {
         "branch-alias": {
             "dev-master": "1.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "sdavis1902\\LunanodeApiPhp\\Laravel\\LunanodeServiceProvider"
+            ],
+            "aliases": {
+                "Lunanode": "sdavis1902\\LunanodeApiPhp\\Laravel\\Lunanode"
+            }
         }
     },
     "config": {
