@@ -30,7 +30,7 @@ foreach( $vms as $vm ){
 
 Laravel 5
 
-Add Service Provider and Alias
+Add Service Provider and Alias ( not required for 5.5 )
 
 ``` php
 'providers' => [
